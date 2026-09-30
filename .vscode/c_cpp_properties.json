@@ -35,6 +35,8 @@
             "defines": [
                 "PLATFORMIO=60200",
                 "ARDUINO_AVR_UNO",
+                "SERIAL_RX_BUFFER_SIZE=256",
+                "SERIAL_TX_BUFFER_SIZE=128",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
                 "ARDUINO=10808",

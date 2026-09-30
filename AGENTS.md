@@ -11,6 +11,10 @@ The performance will also include:
 - Foreground audio made from real conductor announcements processed through a custom English-to-alien translator. Announcements will occur at points in the performance that match their original meaning, but will not be intelligible to the viewer.
 - Optionally, a mirrored black plastic "window" in which viewers see themselves in the "train," framed with trim salvaged from an R46.
 
+## Working Preferences
+
+- Do not make code changes unless the user explicitly asks to write code. If project context is ambiguous, ask if implementation is desired before writing code.
+
 ## Control platform
 
 The sign is large enough that controller size is not a major constraint. A Raspberry Pi is under consideration for sequencing the performance and playing audio; the target model has not been selected. A Pico 2 could serve as a companion for LED timing or a custom LCD interface if needed. These are candidate platforms, not finalized hardware decisions.
@@ -35,3 +39,4 @@ Potential places to take control, from highest to lowest level, are:
 4. The LCD glass itself, using replacement driver hardware if necessary.
 
 The preferred approach is to retain as much of the working display electronics as practical while gaining control of the glyph patterns. A character-based protocol could require going deeper into the circuitry or changing glyph storage, if accessible. Directly driving the glass remains a possibility, but its electrode mapping and required LCD drive waveforms would first need to be understood. Any connection to modern control hardware must account for the original circuitry's signal levels.
+
