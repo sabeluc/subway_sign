@@ -17,7 +17,7 @@ constexpr uint8_t BITS_PER_DRIVER = 40;
 constexpr uint8_t PIXELS_PER_COLUMN = 7;
 constexpr uint8_t COLUMNS_PER_DRIVER = 5;
 constexpr uint8_t GLYPHS_PER_MESSAGE = 16;
-constexpr uint32_t MESSAGE_PERIOD_US = 3000000;
+constexpr uint32_t MESSAGE_PERIOD_US = 4000000;
 
 constexpr uint8_t MAX_MESSAGES = 16;
 constexpr uint8_t COMMAND_BUFFER_SIZE = 96;
