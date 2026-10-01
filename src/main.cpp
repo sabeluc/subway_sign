@@ -53,6 +53,9 @@ char commandBuffer[COMMAND_BUFFER_SIZE];
 uint8_t commandLength = 0;
 bool commandOverflow = false;
 
+uint32_t nextRandom();
+void makeRandomMessages(uint8_t messageCount);
+
 bool every(uint32_t period, uint32_t now, uint32_t& previous) {
   if (static_cast<uint32_t>(now - previous) < period) return false;
   previous += period;
@@ -71,8 +74,11 @@ void makeAsciiMessage(Message& message, const char* text) {
 }
 
 void loadDefaultMessages() {
-  makeAsciiMessage(activeMessages[0], "ABCDEFGHIJKLMNOP");
-  activeMessageCount = 1;
+  makeRandomMessages(3);
+  memcpy(activeMessages, stagedMessages,
+         static_cast<size_t>(stagedMessageCount) * sizeof(Message));
+  activeMessageCount = stagedMessageCount;
+  stagedMessageCount = 0;
   currentMessage = 0;
 }
 
@@ -341,9 +347,9 @@ void setup() {
   PORTB &= ~(CL1_MASK | CL2_MASK | M_MASK | DATA_MASK);
   setClockPhase(0);
 
-  loadDefaultMessages();
   randomState ^= micros();
   randomState ^= static_cast<uint32_t>(analogRead(A0)) << 16;
+  loadDefaultMessages();
   Serial.begin(115200);
   Serial.println(F("ready"));
 }

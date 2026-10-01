@@ -69,5 +69,5 @@ with serial.Serial("/dev/ttyACM0", 115200, timeout=1) as sign:
         print(sign.readline().decode().strip())
 ```
 
-The controller initially displays `ABCDEFGHIJKLMNOP` until a committed
-message set replaces it.
+The controller initially displays a three-message random custom-glyph rotation
+until a committed message set replaces it.
